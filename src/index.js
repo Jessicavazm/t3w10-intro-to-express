@@ -1,6 +1,9 @@
 // Export express to our project
 const express = require("express");
 
+// Import routes
+const router = require('../routes/users');
+
 // Create an instance of the express for configuration
 const app = express();
 
@@ -16,14 +19,6 @@ app.get("/", (req, res) => {
     res.status(201).send("Hello from Express backend!");
 });
 
-// Using JSON
-app.get("/users", (req, res) => {
-    // Function logic executed
-    res.json({
-        message: "JSON response sent!"
-    });
-});
-
 app.post("/", (req, res) => {
     // Function logic executed
     res.json({
@@ -31,6 +26,7 @@ app.post("/", (req, res) => {
     });
 });
 
+app.use("/users", router);
 
 // Start the server & make it listen for incoming connections on a specified port
 app.listen(PORT, ()=> {
