@@ -10,6 +10,10 @@ const router = require('../routes/users');
 // Import Logger & Timing middleware
 const { timing } = require('./middlewares/timing');
 
+// Configure the app instance for using JSON body data - Parse JSON Payloads
+// .json is also a middleware
+app.use(express.json());
+
 // How to use a middleware
 // instance.verb(routePath, middleware, middleware, ....., finalMiddleware) 
 

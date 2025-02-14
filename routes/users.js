@@ -5,14 +5,20 @@ const express = require("express");
 const router = express.Router();
 
 const { logger } = require('../src/middlewares/logger');
+const { checkIfAdmin } = require("../src/middlewares/usersMiddleware");
+const { getUsersFromDatabase } = require("../src/middlewares/databaseMiddleware");
 
 router.use(logger);
 
 // Using JSON
-router.get("/", (req, res) => {
+router.post("/", 
+    // Middlewares functions
+    checkIfAdmin, // Middle to check Auth
+    getUsersFromDatabase, // Middleware to query database
+    (req, res) => {
     // Function logic executed
     res.json({
-        message: "JSON response sent!"
+        users: req.userData // Middleware result in the endpoint response
     });
 });
 
