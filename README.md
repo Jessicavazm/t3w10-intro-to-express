@@ -18,3 +18,17 @@ Express.js is a fast, minimalist web framework for Node.js, designed to simplify
 ### Steps
 - Initialise the project: npm init -y
 - Instal express: npm i express
+
+
+## Middlewares
+Middleware in JavaScript, especially in backend frameworks like Express.js, is a function that sits between the request and the response cycle. It processes incoming requests before they reach the final handler.
+
+### How Middleware Works:
+When a request is made to a server, middleware functions can:
+
+- Middleware functions run before your request reaches the final route handler.
+- Modify the request (req) or response (res) objects.
+- End the request-response cycle.
+- Call the next middleware function using next().
+- Used for logging, authentication, error handling, parsing data.
+

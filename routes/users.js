@@ -4,6 +4,10 @@ const express = require("express");
 // Creates a mini version of the express server 
 const router = express.Router();
 
+const { logger } = require('../src/middlewares/logger');
+
+router.use(logger);
+
 // Using JSON
 router.get("/", (req, res) => {
     // Function logic executed
