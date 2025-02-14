@@ -1,10 +1,10 @@
-// Export express to our project
+// Import express to our project
 const express = require("express");
 
 // Import routes
 const router = require('../routes/users');
 
-// Create an instance of the express for configuration
+// Create an instance of the express for configuration, create a server
 const app = express();
 
 // Define a default PORT number
